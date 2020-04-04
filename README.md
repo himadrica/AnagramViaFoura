@@ -1,5 +1,5 @@
 # Anagrams checkers
-## DefinitionsAnagram: 
+## Definitions of Anagram: 
 a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
 
 # Technology used:
@@ -7,6 +7,10 @@ a word, phrase, or name formed by rearranging the letters of another, such as ci
 * java version 1.8
 * maven
 * google guava
+# Assumed valid input string
+* not null
+* not empty
+* alphanumeric with whitespace
 
 # How to run junit test?
 ```
