@@ -25,7 +25,7 @@ public class AppExceptionHandler extends ResponseEntityExceptionHandler {
 	public final ResponseEntity<ErrorResponse> handleBadRequestExceptions(AnagramException ex, WebRequest request) {
 		List<String> details = new ArrayList<>();
 		details.add(ex.getLocalizedMessage());
-		ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), ex.getMessage(), details);
+		ErrorResponse error = new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "400 - Bad Request", details);
 		return new ResponseEntity<>(error, HttpStatus.BAD_REQUEST);
 	}
 

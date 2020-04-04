@@ -33,7 +33,8 @@ public class AnagramControllerTests {
 				.andExpect(status().isBadRequest())
 				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$.statusCode", is(400)))
-				.andExpect(jsonPath("$.message", is("Invalid input strings to check anagrams")));
+				.andExpect(jsonPath("$.message", is("400 - Bad Request")))
+				.andExpect(jsonPath("$.details", hasItems("Invalid input strings to check anagrams")));
 	}
 
 	@Test
@@ -43,13 +44,15 @@ public class AnagramControllerTests {
 				.andExpect(status().isBadRequest())
 				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$.statusCode", is(400)))
-				.andExpect(jsonPath("$.message", is("Invalid input strings to check anagrams")));
+				.andExpect(jsonPath("$.message", is("400 - Bad Request")))
+				.andExpect(jsonPath("$.details", hasItems("Invalid input strings to check anagrams")));
 
 		mvc.perform(get(new URI("/anagrams/%20%20/abc").getPath()).contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isBadRequest())
 				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$.statusCode", is(400)))
-				.andExpect(jsonPath("$.message", is("Invalid input strings to check anagrams")));
+				.andExpect(jsonPath("$.message", is("400 - Bad Request")))
+				.andExpect(jsonPath("$.details", hasItems("Invalid input strings to check anagrams")));
 	}
 
 	@Test
@@ -81,14 +84,15 @@ public class AnagramControllerTests {
 		mvc.perform(get("/anagrams/ice**man").contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isBadRequest())
 				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
-				.andExpect(jsonPath("$.statusCode", is(400)))
-				.andExpect(jsonPath("$.message", is("Not a valid input string to generate anagrams")));
+				.andExpect(jsonPath("$.message", is("400 - Bad Request")))
+				.andExpect(jsonPath("$.details", hasItems("Not a valid input string to generate anagrams")));
 
 		mvc.perform(get(new URI("/anagrams/%20%20").getPath()).contentType(MediaType.APPLICATION_JSON))
 				.andExpect(status().isBadRequest())
 				.andExpect(content().contentTypeCompatibleWith(MediaType.APPLICATION_JSON))
 				.andExpect(jsonPath("$.statusCode", is(400)))
-				.andExpect(jsonPath("$.message", is("Not a valid input string to generate anagrams")));
+				.andExpect(jsonPath("$.message", is("400 - Bad Request")))
+				.andExpect(jsonPath("$.details", hasItems("Not a valid input string to generate anagrams")));
 	}
 	
 	@Test
