@@ -3,9 +3,10 @@
 a word, phrase, or name formed by rearranging the letters of another, such as cinema, formed from iceman.
 
 # Technology used:
-	* It is a spring boot(2.2.6) application.
-	* java version 1.8
-	* google guava
+* It is a spring boot(2.2.6) application.
+* java version 1.8
+* maven
+* google guava
 
 # How to run junit test?
 ```
@@ -29,10 +30,7 @@ a word, phrase, or name formed by rearranging the letters of another, such as ci
 http://localhost:8080
 ```
 
-* To check anagaram please use the url: 
-```
-http://localhost:8080/anagrams/cinema/iceman
-```
+* To check anagaram please use the url: http://localhost:8080/anagrams/cinema/iceman
 
 	it will be a json response
 ```	
